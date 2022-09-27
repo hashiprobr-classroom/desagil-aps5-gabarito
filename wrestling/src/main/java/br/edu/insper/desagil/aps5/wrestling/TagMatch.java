@@ -1,6 +1,6 @@
 package br.edu.insper.desagil.aps5.wrestling;
 
-public class TagMatch {
+public class TagMatch extends Match {
 	private int idWinnerTeamFirstMember;
 	private int idWinnerTeamSecondMember;
 	private int idLoserTeamFirstMember;
@@ -29,6 +29,7 @@ public class TagMatch {
 		return idLoserTeamSecondMember;
 	}
 
+	@Override
 	public int calculatePoints(int id) {
 		if (idWinnerTeamFirstMember == id || idLoserTeamSecondMember == id) {
 			return 1;
