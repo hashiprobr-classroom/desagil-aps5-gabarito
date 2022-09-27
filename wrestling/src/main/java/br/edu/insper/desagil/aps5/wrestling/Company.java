@@ -4,20 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
-	private List<SingleMatch> singleMatches;
-	private List<TagMatch> tagMatches;
+	private List<Match> matches;
 
 	public Company() {
-		this.singleMatches = new ArrayList<>();
-		this.tagMatches = new ArrayList<>();
+		this.matches = new ArrayList<>();
 	}
 
 	public void addSingleMatch(SingleMatch match) {
-		singleMatches.add(match);
+		matches.add(match);
 	}
 
 	public void addTagMatch(TagMatch match) {
-		tagMatches.add(match);
+		matches.add(match);
 	}
 
 	public int points(Wrestler wrestler) {
@@ -25,11 +23,7 @@ public class Company {
 
 		int id = wrestler.getId();
 
-		for (SingleMatch match : singleMatches) {
-			points += match.calculatePoints(id);
-		}
-
-		for (TagMatch match : tagMatches) {
+		for (Match match : matches) {
 			points += match.calculatePoints(id);
 		}
 
