@@ -1,31 +1,35 @@
 package br.edu.insper.desagil.aps5.wrestling;
 
-public class TagMatch {
-	private int idWinnerTeamFirstMember;
-	private int idWinnerTeamSecondMember;
-	private int idLoserTeamFirstMember;
-	private int idLoserTeamSecondMember;
+public class TagMatch extends Match {
+	private Team winnerTeam;
+	private Team loserTeam;
 
 	public TagMatch(int idWinnerTeamFirstMember, int idWinnerTeamSecondMember, int idLoserTeamFirstMember, int idLoserTeamSecondMember) {
-		this.idWinnerTeamFirstMember = idWinnerTeamFirstMember;
-		this.idWinnerTeamSecondMember = idWinnerTeamSecondMember;
-		this.idLoserTeamFirstMember = idLoserTeamFirstMember;
-		this.idLoserTeamSecondMember = idLoserTeamSecondMember;
+		this.winnerTeam = new Team(idWinnerTeamFirstMember, idWinnerTeamSecondMember);
+		this.loserTeam = new Team(idLoserTeamFirstMember, idLoserTeamSecondMember);
 	}
 
 	public int getIdWinnerTeamFirstMember() {
-		return idWinnerTeamFirstMember;
+		return winnerTeam.getIdFirst();
 	}
 
 	public int getIdWinnerTeamSecondMember() {
-		return idWinnerTeamSecondMember;
+		return winnerTeam.getIdSecond();
 	}
 
 	public int getIdLoserTeamFirstMember() {
-		return idLoserTeamFirstMember;
+		return loserTeam.getIdFirst();
 	}
 
 	public int getIdLoserTeamSecondMember() {
-		return idLoserTeamSecondMember;
+		return loserTeam.getIdSecond();
+	}
+
+	@Override
+	public int calculatePoints(int id) {
+		if (winnerTeam.getIdFirst() == id || loserTeam.getIdSecond() == id) {
+			return 1;
+		}
+		return 0;
 	}
 }

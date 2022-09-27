@@ -1,6 +1,6 @@
 package br.edu.insper.desagil.aps5.wrestling;
 
-public class SingleMatch {
+public class SingleMatch extends Match {
 	private int idWinner;
 	private int idLoser;
 
@@ -15,5 +15,13 @@ public class SingleMatch {
 
 	public int getIdLoser() {
 		return idLoser;
+	}
+
+	@Override
+	public int calculatePoints(int id) {
+		if (idWinner == id) {
+			return 2;
+		}
+		return 0;
 	}
 }
