@@ -26,15 +26,11 @@ public class Company {
 		int id = wrestler.getId();
 
 		for (SingleMatch match : singleMatches) {
-			if (match.getIdWinner() == id) {
-				points += 2;
-			}
+			points += match.calculatePoints(id);
 		}
 
 		for (TagMatch match : tagMatches) {
-			if (match.getIdWinnerTeamFirstMember() == id || match.getIdLoserTeamSecondMember() == id) {
-				points += 1;
-			}
+			points += match.calculatePoints(id);
 		}
 
 		return points;

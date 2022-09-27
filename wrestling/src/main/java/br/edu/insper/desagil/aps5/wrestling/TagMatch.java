@@ -28,4 +28,11 @@ public class TagMatch {
 	public int getIdLoserTeamSecondMember() {
 		return idLoserTeamSecondMember;
 	}
+
+	public int calculatePoints(int id) {
+		if (idWinnerTeamFirstMember == id || idLoserTeamSecondMember == id) {
+			return 1;
+		}
+		return 0;
+	}
 }

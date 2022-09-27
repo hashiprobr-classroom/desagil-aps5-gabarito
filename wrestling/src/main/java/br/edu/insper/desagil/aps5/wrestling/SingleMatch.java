@@ -16,4 +16,11 @@ public class SingleMatch {
 	public int getIdLoser() {
 		return idLoser;
 	}
+
+	public int calculatePoints(int id) {
+		if (idWinner == id) {
+			return 2;
+		}
+		return 0;
+	}
 }
